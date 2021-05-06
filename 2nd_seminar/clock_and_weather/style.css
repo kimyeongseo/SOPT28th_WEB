@@ -1,0 +1,90 @@
+body {
+  box-sizing: border-box;
+  background-color: pink;
+  overflow: hidden;
+}
+
+.header {
+  font-size: 4rem;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+}
+
+.header > span {
+  color: rgb(31, 182, 228);
+}
+
+.analog_clock {
+  display: flex;
+  flex-direction: column;
+  width: 13rem;
+  height: 13rem;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.analog_clock > p {
+  font-size: 20px;
+  color: rgb(31, 182, 228);
+  font-weight: 600;
+  text-align: center;
+  margin: 0%;
+}
+
+.analog_hour {
+  z-index: 2;
+  width: 60px;
+  top: 100px;
+  left: 43px;
+  background-color: palevioletred;
+}
+
+.analog_minute {
+  z-index: 1;
+  width: 90px;
+  top: 98px;
+  left: 13px;
+  background-color: palevioletred;
+}
+
+.analog_second {
+  z-index: 3;
+  width: 90px;
+  top: 96px;
+  left: 13px;
+  background-color: rgb(31, 182, 228);
+}
+
+.analog_hour,
+.analog_minute,
+.analog_second {
+  height: 2px;
+  border-radius: 1px;
+  position: relative;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+}
+
+.digital {
+  display: flex;
+  font-size: 2rem;
+  color: white;
+}
+
+.digital_clock_bnt {
+  cursor: pointer;
+  align-self: center;
+  margin-left: 0.5rem;
+  margin-top: 4px;
+  width: 2.3rem;
+  height: 1.7rem;
+  text-align: center;
+  border: 0.1rem solid white;
+  font-size: 1.2rem;
+}
+
+.digital_clock_bnt:hover {
+  background-color: white;
+  color: pink;
+}

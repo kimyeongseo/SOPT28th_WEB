@@ -1,0 +1,33 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: white;
+  color: rgb(0, 0, 0, 0.9);
+  margin: 0%;
+}
+
+.main__title {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.main__info {
+  font-size: 25px;
+}
+
+.main__bnt {
+  width: 100px;
+  height: 25px;
+  margin-top: 20px;
+  align-self: center;
+}
+
+.dark_mode {
+  background-color: rgb(0, 0, 0, 0.8);
+  color: white;
+}
