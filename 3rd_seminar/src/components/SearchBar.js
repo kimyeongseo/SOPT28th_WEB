@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Styled from "styled-components";
 
 const SearchBarWrap = Styled.div`
@@ -8,11 +8,12 @@ form{
 }
 
 input{
+    color: white;
     width: 300px;
     height: 30px;
     line-height: 30px;
     font-size: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 40px; 
     background: none;
     border: 3.5px solid white;
 }
@@ -23,15 +24,7 @@ input::placeholder {
 
   input:focus {
     outline: none;
-  }
-
-h1{
-    font-size: 40px;
-    cursor: default;
-    color: #FFFFFF;
-    text-shadow: 0 0 10px #FFFFFF;
-
-}`;
+  }`;
 
 const SearchBar = ({ getUser }) => {
     const [userName, setUserName] = React.useState("");
@@ -46,9 +39,10 @@ const SearchBar = ({ getUser }) => {
         setUserName("");
     }
 
+
     return (
         <SearchBarWrap>
-            <h1>GitHub Profile Finder</h1>
+
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -56,6 +50,7 @@ const SearchBar = ({ getUser }) => {
                     value={userName}
                     onChange={handleChange} />
             </form>
+
         </SearchBarWrap>
     );
 };

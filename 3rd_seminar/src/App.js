@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Result from "./components/Result";
 import SearchBar from './components/SearchBar';
 import { getUserData } from './lib/api';
 import Styled from "styled-components";
 
 const MainWrap = Styled.div`
+h1{
+  font-size: 40px;
+  cursor: default;
+  color: #FFFFFF;
+  text-shadow: 0 0 10px #FFFFFF;
+}
+
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -32,10 +39,13 @@ function App() {
     }
   };
 
+
   return (
     <MainWrap>
-      <SearchBar getUser={getUser} />
-      <Result userData={userData} />
+      <h1>GitHub Profile Finder</h1>
+      < SearchBar getUser={getUser} />
+      <Result
+        userData={userData} />
     </MainWrap>
   );
 }

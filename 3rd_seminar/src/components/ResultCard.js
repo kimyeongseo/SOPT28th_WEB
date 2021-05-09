@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 const ResultCardWrap = Styled.div`
 img {
     width: 200px;
     height: 200px;
-    border-radius: 10px;
+    border-radius: 50%;
     -webkit-box-shadow: 0px 7px 14px 7px rgba(255,255,255,0.35); 
     box-shadow: 0px 7px 14px 7px rgba(255,255,255,0.35);
 }
@@ -13,18 +15,21 @@ img {
 
 .result_card{
     display: flex;
+    margin-top: 20px;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     width: 400px;
-    height: 450px;
+    height: 500px;
+    border: 3px solid white;
+    border-radius: 20px;
 }
 
 .result_id{
     font-size: 30px;
     font-weight: 700;
-    color: rgb(238, 255, 145);
-    margin: 20px 0px 35px 0px;
+    color: #fcf3b6;
+    text-shadow: 0 0 5px #b7d7e8;
+    margin: 20px 0px 20px 0px;
 }
 
 .result_list{
@@ -46,14 +51,57 @@ img {
     font-weight: 700;
     color: white;
 }
+
+.result_closeIcon{
+    display: flex;
+    align-self: flex-end;
+    margin: 10px 10px 10px 0px;
+    color: #8ca6ce;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.result_closeIcon:hover{
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+    color: white;
+}
+
+.result_visit{
+    background: none;
+    font-size: 23px;
+    color: white;
+    border: 3px solid white;
+    height: 40px;
+    width: 170px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.result_visit:hover{
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+    background: linear-gradient(to right, #fbcac9, #8ca6ce);
+    border: none; 
+}
+
 `;
 
 const ResultCard = ({ data }) => {
+
     return data && (
         <ResultCardWrap>
             <div className='result_card'>
+                <FontAwesomeIcon
+                    icon={faTimesCircle}
+                    className='result_closeIcon'
+                />
                 <img src={data.avatar_url} alt="" />
                 <p className='result_id'>{data.login}</p>
+                <a href={'' + data.html_url}>
+                    <button className='result_visit'>Visit GitHub</button>
+                </a>
                 <div className='result_list'>
                     <div className='result_followers'>Followers
                     <p className="info">{data.followers}</p></div>
@@ -63,8 +111,8 @@ const ResultCard = ({ data }) => {
                     <p className="info"> {data.public_repos} </p></div>
                 </div>
             </div>
-        </ResultCardWrap>
+        </ResultCardWrap >
     );
-}
+};
 
 export default ResultCard;
