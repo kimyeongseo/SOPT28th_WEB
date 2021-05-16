@@ -14,15 +14,15 @@ const TitleWrap = Styled.div`
   }
 `;
 
-const Title = ({ history }) => {
-    const title =
-        history.location.pathname === "/" ? "이번 달 일기" : "오늘의 일기";
+const Title = ({ location }) => {
+  const title =
+    location.pathname === "/" ? "이번 달 일기" : "오늘의 일기";
 
-    return (
-        <TitleWrap>
-            <div className="title">{title}</div>
-        </TitleWrap>
-    );
+  return (
+    <TitleWrap>
+      <div className="title">{title}</div>
+    </TitleWrap>
+  );
 };
 
 export default withRouter(Title);

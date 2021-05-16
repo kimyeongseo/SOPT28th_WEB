@@ -32,18 +32,18 @@ const MainHeaderWrap = Styled.div`
 `;
 
 const MainHeader = ({ history }) => {
-    return (
-        <MainHeaderWrap>
-            <div className="header">
-                <img className="header__menu" src={MenuIcon} alt="" />
-                <div className="header__title" onClick={() => history.push("/")}>
-                    Diary App
+  return (
+    <MainHeaderWrap>
+      <div className="header">
+        <img className="header__menu" src={MenuIcon} alt="" />
+        <div className="header__title" onClick={() => history.push("/")}>
+          Diary App
         </div>
-                <img className="header__profile" src={ProfileIcon} alt=""></img>
-            </div>
-            <div className="header__hr"></div>
-        </MainHeaderWrap>
-    );
+        <img className="header__profile" src={ProfileIcon} alt="" />
+      </div>
+      <div className="header__hr"></div>
+    </MainHeaderWrap>
+  );
 };
 
 export default withRouter(MainHeader);

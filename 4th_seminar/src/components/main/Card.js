@@ -73,41 +73,41 @@ const CardWrap = Styled.div`
 `;
 
 const getDateFormat = (date) => {
-    const year = parseInt((date % 10000) / 100);
-    const day = date % 100;
-    return `${year}월 ${day}일`;
+  const year = parseInt((date % 10000) / 100);
+  const day = date % 100;
+  return `${year}월 ${day}일`;
 };
 
 const Card = ({ props }) => {
-    const { date, title, image, weather, tags } = props;
+  const { date, title, image, weather, tags } = props;
 
-    return (
-        <CardWrap>
-            <div className="card">
-                <div className="card__image">
-                    {image ? (
-                        <img className="card__image--photo" src={image} alt="" />
-                    ) : (
-                        <img className="card__image--empty" src={EmptyImage} alt="" />
-                    )}
-                </div>
-                <div className="card__top">
-                    <div className="card__top--date">{getDateFormat(date)}</div>
-                    <div className="card__top--weather">{weather}</div>
-                </div>
-                <div className="card__title">{title ? title : "제목 없음"}</div>
-                <div className="card__tags">
-                    {tags.map((tag, index) => {
-                        return (
-                            <div key={index} className="card__tags--tag">
-                                {tag}
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
-        </CardWrap>
-    );
+  return (
+    <CardWrap>
+      <div className="card">
+        <div className="card__image">
+          {image ? (
+            <img className="card__image--photo" src={image} alt="" />
+          ) : (
+            <img className="card__image--empty" src={EmptyImage} alt="" />
+          )}
+        </div>
+        <div className="card__top">
+          <div className="card__top--date">{getDateFormat(date)}</div>
+          <div className="card__top--weather">{weather}</div>
+        </div>
+        <div className="card__title">{title ? title : "제목 없음"}</div>
+        <div className="card__tags">
+          {tags.map((tag, index) => {
+            return (
+              <div key={index} className="card__tags--tag">
+                {tag}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </CardWrap>
+  );
 };
 
 export default Card;

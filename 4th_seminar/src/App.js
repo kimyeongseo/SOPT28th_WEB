@@ -6,33 +6,41 @@ import MainHeader from './components/common/MainHeader';
 import Title from './components/common/Title';
 import Main from "./pages/Main";
 import Diary from "./pages/Diary";
-import getUserData from './lib/api';
+import { getCardData } from './lib/api';
 
 
-const getCurrDate = () => {
+
+const getCurrentDate = () => {
   const now = new Date();
-  const currYear = now.getFullYear();
-  const currMonth = now.getMonth();
-  return { year: currYear, month: currMonth };
+  const currentYear = now.getFullYear();
+  const currentMonth = now.getMonth();
+  return { year: currentYear, month: currentMonth };
 };
 
 function App() {
-  const [year, setYear] = useState(getCurrDate().year);
-  const [month, setMonth] = useState(getCurrDate().month);
+  const [year, setYear] = useState(getCurrentDate().year);
+  const [month, setMonth] = useState(getCurrentDate().month);
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      const data = await getCardData();
+      data[year] && setUserData(data[year][month]);
+    })();
+  }, [year, month]);
 
   return (
     <>
       <BrowserRouter>
         <MainHeader />
         <Calendar
-          currYear={year}
-          setCurrYear={setYear}
-          currMonth={month}
-          setCurrMonth={setMonth} />
+          currentYear={year}
+          setCurrentYear={setYear}
+          currentMonth={month}
+          setCurrentMonth={setMonth} />
         <Title />
         <Switch>
-          <Route exact path="/" cmponent={() => <Main year={year} month={month} />} />
-          <Route exact path="/diary" cmponent={Diary} />
+          <Route exact path="/" component={() => { return <Main props={userData} /> }} />
           <Route path="/diary/:id" component={Diary} />
           <Route component={() => <div>page not found</div>} />
         </Switch>

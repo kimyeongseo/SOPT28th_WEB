@@ -50,56 +50,56 @@ const CalendarWrap = Styled.div`
   }
 `;
 
-const Calendar = ({ currYear, setCurrYear, currMonth, setCurrMonth }) => {
-    const monthList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-    const leftButton = React.useRef();
-    const rightButton = React.useRef();
+const Calendar = ({ currentYear, setCurrentYear, currentMonth, setCurrentMonth }) => {
+  const monthList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  const leftButton = React.useRef();
+  const rightButton = React.useRef();
 
-    return (
-        <CalendarWrap>
-            <div className="calendar">
-                <div className="calendar__year">
-                    <img
-                        className="calendar__year--left"
-                        src={LeftOff}
-                        alt=""
-                        onClick={() => setCurrYear(currYear - 1)}
-                        onMouseEnter={() => (leftButton.current.src = LeftOn)}
-                        onMouseLeave={() => (leftButton.current.src = LeftOff)}
-                        ref={leftButton}
-                    />
-                    <div className="calendar__year--number">{currYear}년</div>
-                    <img
-                        className="calendar__year--right"
-                        src={RightOff}
-                        alt=""
-                        onClick={() => setCurrYear(currYear + 1)}
-                        onMouseEnter={() => (rightButton.current.src = RightOn)}
-                        onMouseLeave={() => (rightButton.current.src = RightOff)}
-                        ref={rightButton}
-                    />
-                </div>
-                <div className="calendar__month">
-                    {monthList.map((month) => {
-                        return (
-                            <div
-                                key={month}
-                                className="calendar__month--button"
-                                onClick={() => setCurrMonth(month)}
-                                style={
-                                    month === currMonth
-                                        ? { fontSize: "22px", fontWeight: "bold" }
-                                        : {}
-                                }
-                            >
-                                {month + 1}월
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
-        </CalendarWrap>
-    );
+  return (
+    <CalendarWrap>
+      <div className="calendar">
+        <div className="calendar__year">
+          <img
+            className="calendar__year--left"
+            src={LeftOff}
+            alt=""
+            onClick={() => setCurrentYear(currentYear - 1)}
+            onMouseEnter={() => (leftButton.current.src = LeftOn)}
+            onMouseLeave={() => (leftButton.current.src = LeftOff)}
+            ref={leftButton}
+          />
+          <div className="calendar__year--number">{currentYear}년</div>
+          <img
+            className="calendar__year--right"
+            src={RightOff}
+            alt=""
+            onClick={() => setCurrentYear(currentYear + 1)}
+            onMouseEnter={() => (rightButton.current.src = RightOn)}
+            onMouseLeave={() => (rightButton.current.src = RightOff)}
+            ref={rightButton}
+          />
+        </div>
+        <div className="calendar__month">
+          {monthList.map((month) => {
+            return (
+              <div
+                key={month}
+                className="calendar__month--button"
+                onClick={() => setCurrentMonth(month)}
+                style={
+                  month === currentMonth
+                    ? { fontSize: "22px", fontWeight: "bold" }
+                    : {}
+                }
+              >
+                {month + 1}월
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </CalendarWrap>
+  );
 };
 
 export default Calendar;
