@@ -23,6 +23,9 @@ body {
   border-radius: 50%;
   background-color: white;
 }
+.clock{
+  margin: 0px 80px;
+}
 
 .analog_clock > p {
   font-size: 20px;
@@ -87,4 +90,63 @@ body {
 .digital_clock_bnt:hover {
   background-color: white;
   color: pink;
+}
+
+.main{
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  
+}
+
+
+.weather {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather_top {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.weather_top_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  height: 180px;
+  margin-bottom: 20px;
+}
+
+.weather_temperature {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: rgb(31, 182, 228);
+}
+
+.weather_main {
+  font-size: 32px;
+  text-align: bottom;
+  color: white;
+}
+
+.weather_temps,
+.weather_others {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 5px;
+  color: rgb(31, 182, 228);
+}
+
+.weather_temps > span,
+.weather_others > span {
+  color: white;
+}
+
+.weather_icon {
+  margin-bottom: 30px;
 }
