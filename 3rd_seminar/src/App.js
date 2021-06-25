@@ -17,7 +17,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 height: 100vh;
-background: rgb(183,209,247);
+background-color: pink;
 background: radial-gradient(circle, rgba(183,209,247,1) 8%, rgba(163,166,251,1) 100%);
 `;
 
